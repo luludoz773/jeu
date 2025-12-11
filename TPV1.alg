@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Algo>
-    <description texte="jeu du nombre mystère" courant="AFFICHER &quot;Donnez un nombre entre 1 et 50&quot;"/>
+    <description texte="jeu du nombre mystère" courant="AFFICHER &quot;bravo ! Vous avez trouvé en &quot;"/>
     <extension extnom="inactif"/>
     <fonction fctcode="" fctetat="inactif"/>
-    <F2 F2para="" F2lignes="" F2etat="inactif" F2defaut=""/>
-    <repere repcode="-10#10#-10#10#2#2" repetat="inactif"/>
-    <param totalBoucles="5000000" epaisseurPoint="2" totalAffichages="1000" nbDecimales="8" arrondiAuto="vrai" epaisseurLigne="2" maxBoucle="500000"/>
+    <F2 F2lignes="" F2defaut="" F2etat="inactif" F2para=""/>
+    <repere repetat="inactif" repcode="-10#10#-10#10#2#2"/>
+    <param totalAffichages="1000" nbDecimales="8" arrondiAuto="vrai" maxBoucle="500000" totalBoucles="5000000" epaisseurPoint="2" epaisseurLigne="2"/>
     <item code="200#declarationfonctions" algoitem="FONCTIONS_UTILISEES"/>
     <item code="100#declarationsvariables" algoitem="VARIABLES">
         <item code="1#NOMBRE#saisie" algoitem="saisie EST_DU_TYPE NOMBRE"/>
         <item code="1#NOMBRE#nbmystere" algoitem="nbmystere EST_DU_TYPE NOMBRE"/>
+        <item code="1#NOMBRE#essais" algoitem="essais EST_DU_TYPE NOMBRE"/>
     </item>
     <item code="101#debutalgo" algoitem="DEBUT_ALGORITHME">
         <item code="5#nbmystere#ALGOBOX_ALEA_ENT(1,50)#pasliste" algoitem="nbmystere PREND_LA_VALEUR ALGOBOX_ALEA_ENT(1,50)"/>
@@ -29,9 +30,12 @@
             </item>
             <item code="2#saisie#pasliste" algoitem="LIRE saisie"/>
             <item code="4#Réessaye#1" algoitem="AFFICHER &quot;Réessaye&quot;"/>
+            <item code="5#saisie#essais+1#pasliste" algoitem="saisie PREND_LA_VALEUR essais+1"/>
             <item code="17#fintantque" algoitem="FIN_TANT_QUE"/>
         </item>
-        <item code="4#bravo#0" algoitem="AFFICHER &quot;bravo&quot;"/>
+        <item code="4#bravo ! Vous avez trouvé en #0" algoitem="AFFICHER &quot;bravo ! Vous avez trouvé en &quot;"/>
+        <item code="3#essais#0#pasliste" algoitem="AFFICHER essais"/>
+        <item code="4# essais#0" algoitem="AFFICHER &quot; essais&quot;"/>
     </item>
     <item code="102#finalgo" algoitem="FIN_ALGORITHME"/>
 </Algo>
